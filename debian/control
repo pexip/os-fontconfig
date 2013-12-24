@@ -1,13 +1,15 @@
 Source: fontconfig
 Section: fonts
 Priority: optional
-Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
+Maintainer: Pexip AS <packaging@pexip.com>
+XSBC-Pexip-Original-Maintainer: Ubuntu Core developers <ubuntu-devel-discuss@lists.ubuntu.com>
 XSBC-Original-Maintainer: Keith Packard <keithp@debian.org>
-Uploaders: Josselin Mouette <joss@debian.org>
+XSBC-Pexip-Original-Uploaders: Josselin Mouette <joss@debian.org>
 Build-Depends: cdbs (>= 0.4.90ubuntu8), debhelper (>= 8.1.2ubuntu2),
 	libfreetype6-dev (>= 2.1.7), libexpat1-dev,
 	binutils (>= 2.12.90.0.9), po-debconf
 Standards-Version: 3.8.3
+XS-Pexip-Upstream: http://archive.ubuntu.com/ubuntu/ precise
 
 Package: fontconfig
 Section: fonts

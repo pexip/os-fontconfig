@@ -1,3 +1,9 @@
+fontconfig (2.8.0-3ubuntu9.1pexip1) pexip; urgency=low
+
+  * Prepare Pexip packaging
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 24 Dec 2013 17:00:20 +0000
+
 fontconfig (2.8.0-3ubuntu9.1) precise-proposed; urgency=low
 
   * Fix fontconfig-config postinst to ignore rmdir failures when removing
