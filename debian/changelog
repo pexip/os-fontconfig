@@ -1,3 +1,9 @@
+fontconfig (2.11.0-6.3pexip2) pexip; urgency=low
+
+  * Remove obsolete conffiles
+
+ -- John-Mark Bell <jmb@pexip.com>  Tue, 09 Jun 2015 00:43:22 +0100
+
 fontconfig (2.11.0-6.3pexip1) pexip; urgency=low
 
   * New upstream release; migrate to Jessie
