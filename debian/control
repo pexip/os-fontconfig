@@ -14,7 +14,7 @@ Build-Depends: cdbs (>= 0.4.93),
                gperf,
                po-debconf
 Standards-Version: 3.9.3
-XS-Pexip-Upstream: http://ftp.debian.org/debian/ jessie
+XS-Pexip-Upstream: http://ftp.debian.org/debian/ stretch
 
 Package: fontconfig
 Section: fonts
