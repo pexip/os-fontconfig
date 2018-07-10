@@ -44,7 +44,7 @@ Section: fonts
 Architecture: all
 Depends: ${misc:Depends},
          ucf (>= 0.29),
-         ttf-dejavu-core | ttf-bitstream-vera | fonts-liberation | fonts-freefont
+         fonts-dejavu-core | ttf-bitstream-vera | fonts-liberation | fonts-freefont
 Replaces: fontconfig (<< 2.3.2-2)
 Conflicts: fontconfig (<< 2.3.2-2)
 Multi-Arch: foreign
