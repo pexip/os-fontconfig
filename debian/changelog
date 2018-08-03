@@ -1,4 +1,4 @@
-fontconfig (2.11.0-6.7pexip1) pexip; urgency=medium
+fontconfig (2.11.0-6.7+b1pexip1) pexip; urgency=medium
 
   * Migrate to Stretch
   * debian/control: revert fontconfig-config dependency to fonts-dejavu-core
