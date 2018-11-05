@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: fontconfig 20070421\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
-"POT-Creation-Date: 2012-04-30 10:00-0700\n"
+"POT-Creation-Date: 2017-07-05 11:29+0200\n"
 "PO-Revision-Date: 2007-04-21 02:22-0600\n"
 "Last-Translator: Praveen|പ്രവീണ്‍ A|എ <pravi.a@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-"
@@ -32,7 +32,9 @@ msgstr "ഓട്ടോഹിന്റര്‍"
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:2001
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:2001 ../fontconfig-config.templates:3001
 msgid "None"
 msgstr "ഒന്നുമില്ല"
 
@@ -74,30 +76,86 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
+msgid "Slight"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:3001
+msgid "Medium"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:3001
+msgid "Full"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+#, fuzzy
+#| msgid "Font tuning method for screen:"
+msgid "Automatic font hinting style:"
+msgstr "സ്ക്രീനിന് വേണ്ട അക്ഷരരൂപ പാകപ്പെടുത്തല്‍:"
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+#, fuzzy
+#| msgid ""
+#| "Please select the preferred method for tuning fonts for screen rendering."
+msgid ""
+"Please select the preferred automatic font hinting style to be used as the "
+"system default."
+msgstr ""
+"ദയവായി സ്ക്രീന്‍ ചിത്രീകരണത്തിനായി അക്ഷരരൂപങ്ങളെ പാകപ്പെടുത്താനുള്ള നിങ്ങളിഷ്ടപ്പെടുന്ന രീതി "
+"തിരഞ്ഞെടുക്കുക."
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid ""
+"The hinting style is the amount of font reshaping done to line up to the "
+"grid. \"Slight\" will make the font more fuzzy to line up to the grid but "
+"will be better in retaining font shape, while \"Full\" will be a crisp font "
+"that aligns well to the pixel grid but will lose a greater amount of font "
+"shape. \"Slight\" is the default setting."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid "To revert to the pre-2.12 behavior, select \"Full\"."
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:4001
 msgid "Automatic"
 msgstr "സ്വതവേ"
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:3001
+#: ../fontconfig-config.templates:4001
 msgid "Always"
 msgstr "എല്ലായ്പോഴും"
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:3001
+#: ../fontconfig-config.templates:4001
 msgid "Never"
 msgstr "ഒരിക്കലും വേണ്ട"
 
 #. Type: select
 #. Description
-#: ../fontconfig-config.templates:3002
+#: ../fontconfig-config.templates:4002
 msgid "Enable subpixel rendering for screen:"
 msgstr "സ്ക്രീനിന് സബ്പിക്സല്‍ ചിത്രീകരണം പ്രാവര്‍ത്തികമാക്കട്ടേ:"
 
 #. Type: select
 #. Description
-#: ../fontconfig-config.templates:3002
+#: ../fontconfig-config.templates:4002
 msgid ""
 "Rendering text at a subpixel level generally makes it look a bit better on "
 "flat (LCD) screens, but can show color artifacts on CRT screens. The "
@@ -109,13 +167,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid "Enable bitmapped fonts by default?"
 msgstr "ബിറ്റ്മാപ് ചെയ്ത അക്ഷരരൂപങ്ങള്‍ ഡിഫാള്‍ട്ടായി പ്രാവര്‍ത്തികമാക്കണോ?"
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid ""
 "By default, only outline fonts are used by applications which support "
 "fontconfig."
@@ -125,7 +183,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid ""
 "Outline fonts are fonts which scale well to various sizes. In contrast, "
 "bitmapped fonts are often lower quality. Enabling this option will affect "

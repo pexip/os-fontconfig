@@ -1,3 +1,164 @@
+fontconfig (2.13.1-2) unstable; urgency=medium
+
+  * Team upload.
+  [ Jelmer Vernooĳ ]
+  * Replace XC-Package-Type with Package-Type.
+
+  [ Andreas Henriksson ]
+  * Only create 10-hinting-slight.conf symlink if its non-existant
+    (Closes: #877162)
+
+  [ Laurent Bigonville ]
+  * debian/patches/path_max.patch: Fix FTBFS on hurd (Closes: #912699)
+  * Do not build the documentation if the nodoc build profile is set, that
+    should help to remove a (build) dependency cycle
+  * debian/control: Bump Standards-Version to 4.2.1 (no further changes)
+  * debian/control: Make fontconfig-config Breaks against libfontconfig1 (<<
+    2.13.0), some config files are containing stanza not recognized with older
+    versions (Closes: #896684)
+  * debian/patches/do_not_remove_uuid.patch: Revert the cleanup of the .uuid
+    files, this is causing multiple issues and it's not even fixing #897040,
+    from upstream (Closes: #909728,#909841,#909818)
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 05 Nov 2018 21:42:38 +0100
+
+fontconfig (2.13.1-1) unstable; urgency=medium
+
+  * New upstream release.
+  * d/p/0001-Do-not-override-locale-if-already-set-by-app.patch,
+    d/p/0002-Leave-the-locale-setting-to-applications.patch,
+    d/p/0003-Bug-106459-fc-cache-doesn-t-use-y-option-for-.uuid-f.patch:
+    + Removed, merged upstream.
+  * debian/libfontconfig1.symbols: updated symbols.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 26 Sep 2018 14:09:29 +0200
+
+fontconfig (2.13.0-5) unstable; urgency=medium
+
+  * Team upload.
+  * d/p/0003-Bug-106459-fc-cache-doesn-t-use-y-option-for-.uuid-f.patch: Honor
+    the -y option when looking for .uuid files as well
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 14 May 2018 10:32:10 +0200
+
+fontconfig (2.13.0-4) unstable; urgency=medium
+
+  * debian/libfontconfig1.symbols: update symbols version for those that
+    were available in 2.12.6.
+  * debian/rules: only move the config files around when building the
+    fontconfig-config package, fixes the build on binary-arch builds.
+    Closes: #895592.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Fri, 13 Apr 2018 18:45:58 +0200
+
+fontconfig (2.13.0-3) unstable; urgency=medium
+
+  * Update Portuguese debconf translation, thanks Rui Branco.
+    Closes: #871398.
+  * Update Russian debconf translation, thanks Lev Lamberov.
+    Closes: #883873.
+  * Update German debconf translation, thanks Markus Hiereth.
+    Closes: #886031.
+  * Switch to dh.
+  * Bump debhelper compat to 11. Automatic autoreconf.
+  * debian/*.install: Let debhelper find files in debian/tmp automatically.
+  * Update README.packaging for the move to salsa.
+  * debian/libfontconfig1-dev.doc-base: update index file.
+  * 0001-Do-not-override-locale-if-already-set-by-app.patch,
+    0002-Leave-the-locale-setting-to-applications.patch:
+    - Don't call setlocale() from the library, as that breaks applications.
+      Closes: #895470.
+  * Add a symbols file.
+  * Bump Standards-Version to 4.1.4, no changes needed.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Thu, 12 Apr 2018 18:51:56 +0200
+
+fontconfig (2.13.0-2) unstable; urgency=medium
+
+  * debian/control: let libfontconfig1-dev depend on uuid-dev.
+    Closes: #895391.
+  * Add myself to Uploaders.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 11 Apr 2018 09:12:46 +0200
+
+fontconfig (2.13.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Keith Packard ]
+  * Add dependency on python2.7, python-lxml, python-six
+  * Add dependency on docbook, docbook-utils, texlive-formats-extra
+
+  [ Emilio Pozuelo Monfort ]
+  * debian/control: git repo moved to salsa, add Vcs-* fields accordingly.
+  * debian/control: set the freedesktop.org team as maintainer.
+  * debian/control: drop obsolete pre-depends / conflicts / replaces.
+  * debian/gbp.conf: set pristine-tar to false, compression to bz2.
+  * New upstream release.
+    - Drop python build-deps.
+    - Bump freetype minimum dependency.
+    - Build-dep on uuid-dev.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 09 Apr 2018 19:03:54 +0200
+
+fontconfig (2.12.6-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release (Closes: #881278, #869584)
+    - Drop debian/patches/03_locale_c.utf8.patch and
+      debian/patches/06_cross.patch: applied upstream
+  * debian/control:
+    - Bump Standards-Version to 4.1.1 (no further changes)
+    - Use the priority optional instead of extra, the later is deprecated
+  * debian/rules: Use ?= instead of = operator to assign DEB_BUILD_GNU_TYPE to
+    please lintian
+  * debian/po/fr.po: Update French debconf translations (Closes: #873121)
+  * debian/po/nl.po: Update Dutch debconf translations (Closes: #874277)
+  * debian/watch: Use https:// to watch new upstream releases
+
+ -- Laurent Bigonville <bigon@debian.org>  Thu, 09 Nov 2017 16:45:04 +0100
+
+fontconfig (2.12.3-0.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add a NEWS file to describe the change in the default hinting style. Also
+    add a debconf question to allow the administrator to change it (Closes:
+    #866950)
+
+ -- Laurent Bigonville <bigon@debian.org>  Tue, 04 Jul 2017 21:16:21 +0200
+
+fontconfig (2.12.3-0.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release
+    - Do not FTBFS if docbook-utils is installed (Closes: #862483)
+    - Drop debian/patches/01_path_max.patch, merged upstream
+    - Refresh debian/patches/06_cross.patch
+  * debian/watch: Switch to .bz2 tarballs
+  * debian/control: Bump Standards-Version to 4.0.0 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Thu, 22 Jun 2017 09:53:55 +0200
+
+fontconfig (2.12.1-0.1) experimental; urgency=medium
+
+  * Non-maintainer upload.
+  * New upstream release (Closes: #816045)
+    - d/p/01_path_max.patch, d/p/06_cross.patch: Refreshed
+    - Drop patches/05_doc_files.patch, the tarball already contains the
+      pre-generated documentation
+    - Drop d/p/07_CVE-2016-5384-Properly-validate-offsets-in-cache-files.patch:
+      Applied upstream
+  * Drop -dbg package and rely on the -dbgsym ones, bump debhelper dependency
+    to be sure that dh_stip has --dbgsym-migration flag
+  * debian/rules: Pass --enable-static flag to also build the static library
+  * Updated debconf questions translations: debian/po/tr.po, debian/po/it.po
+    and debian/po/pt_BR.po (Closes: #756715, 760203, 799416)
+  * debian/control: Remove duplicate Section fields to please lintian
+  * Adjust several lintian-overrides files
+  * debian/fontconfig-config.postrm: Do not hardcode ucf path
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 12 Mar 2017 20:42:18 +0100
+
 fontconfig (2.11.0-6.7) unstable; urgency=medium
 
   * Non-maintainer upload.

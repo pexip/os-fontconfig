@@ -22,6 +22,13 @@ is_initial_configuration() {
     return 1
 }
 
+# Create /etc/fonts/conf.d/10-hinting-slight.conf symlink on upgrade, this is
+# upstream default
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.12.3-0.2~"; then
+    test -e $CONFDIR/10-hinting-slight.conf || \
+        ln -s $CONFAVAIL/10-hinting-slight.conf $CONFDIR/10-hinting-slight.conf
+fi
+
 if is_initial_configuration "$@"; then
     db_get fontconfig/hinting_type
     hinting_type="$RET"
@@ -47,6 +54,41 @@ if is_initial_configuration "$@"; then
     	;;
     esac
 
+    db_get fontconfig/hinting_style
+    hinting_style="$RET"
+
+    hintnone="10-hinting-none.conf"
+    hintslight="10-hinting-slight.conf"
+    hintmedium="10-hinting-medium.conf"
+    hintfull="10-hinting-full.conf"
+
+    if [ -h $CONFDIR/$hintnone ]; then
+    	rm $CONFDIR/$hintnone
+    fi
+    if [ -h $CONFDIR/$hintslight ]; then
+    	rm $CONFDIR/$hintslight
+    fi
+    if [ -h $CONFDIR/$hintmedium ]; then
+    	rm $CONFDIR/$hintmedium
+    fi
+    if [ -h $CONFDIR/$hintfull ]; then
+    	rm $CONFDIR/$hintfull
+    fi
+
+    case "$hinting_style" in
+    "hintnone")
+    	ln -s $CONFAVAIL/$hintnone $CONFDIR/$hintnone
+    	;;
+    "hintslight")
+    	ln -s $CONFAVAIL/$hintslight $CONFDIR/$hintslight
+    	;;
+    "hintmedium")
+    	ln -s $CONFAVAIL/$hintmedium $CONFDIR/$hintmedium
+    	;;
+    "hintfull")
+    	ln -s $CONFAVAIL/$hintfull $CONFDIR/$hintfull
+    	;;
+    esac
 
     db_get fontconfig/subpixel_rendering
     subpixel_rendering="$RET"

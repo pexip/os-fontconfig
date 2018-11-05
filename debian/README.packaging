@@ -2,9 +2,9 @@ To build the current package:
 
  1) Clone the debian fontconfig repository:
 
-    $ git clone -o debian ssh://git.debian.org/git/pkg-freedesktop/fontconfig-debian fontconfig
+    $ git clone -o debian https://salsa.debian.org/freedesktop-team/fontconfig.git
     $ cd fontconfig
-   
+
  2) Mix in the upstream fontconfig repository objects:
 
     $ git remote add upstream git://anongit.freedesktop.org/git/fontconfig
