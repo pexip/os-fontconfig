@@ -1,42 +1,33 @@
 #!/usr/bin/make -f
-# -*- mode: makefile; coding: utf-8 -*-
-# Copyright © 2002,2003 Colin Walters <walters@gnu.org>
 
-# This ensures the fontconfig package is built after libfontconfig1
-binary/fontconfig:: binary/libfontconfig1
-
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/rules/autoreconf.mk
-include /usr/share/cdbs/1/class/autotools.mk
-
-DEB_BUILD_GNU_TYPE=$(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
-DEB_HOST_MULTIARCH?=$(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
-ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
-WITHARCH=--with-arch=$(DEB_HOST_GNU_TYPE)
+ifneq ($(filter nodoc,$(DEB_BUILD_PROFILES)),)
+	BUILD_DOC := --disable-docs
 else
-WITHARCH=
+	BUILD_DOC := --enable-docs
 endif
 
-DEB_CONFIGURE_EXTRA_FLAGS := $(WITHARCH) --enable-docs --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) --with-add-fonts=/usr/X11R6/lib/X11/fonts,/usr/local/share/fonts
+%:
+	dh $@
 
-# tight versioning
-DEB_DH_MAKESHLIBS_ARGS_libfontconfig1 := -V"libfontconfig1 (>= 2.11)" --add-udeb="fontconfig-udeb"
+override_dh_auto_configure:
+	dh_auto_configure -- --enable-static $(BUILD_DOC) --with-add-fonts=/usr/X11R6/lib/X11/fonts,/usr/local/share/fonts
 
-DEB_SHLIBDEPS_LIBRARY_fontconfig := libfontconfig1
-DEB_SHLIBDEPS_INCLUDE_fontconfig := debian/libfontconfig1/usr/lib/$(DEB_HOST_MULTIARCH)
+override_dh_makeshlibs:
+	dh_makeshlibs -plibfontconfig1 -V"libfontconfig1 (>= 2.13)" --add-udeb="fontconfig-udeb" -- -c4
 
-DEB_DH_STRIP_ARGS := --dbg-package=libfontconfig1-dbg
+override_dh_strip:
+	dh_strip --dbgsym-migration='libfontconfig1-dbg (<< 2.12.1-0.1~)'
 
-DEB_MAKE_ENVVARS := LC_ALL=C
-
-clean::
+override_dh_clean:
+	dh_clean
 	chmod +w debian/po/*.po
 	debconf-updatepo
-	rm -f config/Makedefs Makefile src/Makefile fontconfig/Makefile doc/Makefile doc/version.sgml
-	rm -f fc-cache/Makefile fc-list/Makefile fontconfig-config fontconfig.pc config.h
 
-# An empty file will do for enabling bitmaps
-binary-post-install/fontconfig-config::
+override_dh_install-indep:
+	dh_install -i
 	cd debian/fontconfig-config/usr/share/fontconfig/conf.avail && \
 		mv 70-yes-bitmaps.conf 70-force-bitmaps.conf
 	cp debian/70-yes-bitmaps.conf debian/fontconfig-config/usr/share/fontconfig/conf.avail/
+	# Do not ship 10-hinting-slight.conf symlink by default, let debconf handle
+	# that so the administrator can configure it. Still default to slight hinting.
+	rm debian/fontconfig-config/etc/fonts/conf.d/10-hinting-slight.conf

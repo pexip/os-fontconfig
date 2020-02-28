@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.4.2-1\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
-"POT-Creation-Date: 2012-04-30 10:00-0700\n"
+"POT-Creation-Date: 2017-07-05 11:29+0200\n"
 "PO-Revision-Date: 2007-02-22 19:00+0100\n"
 "Last-Translator: Ernest Adrogué <eadrogue@gmx.net>\n"
 "Language-Team: Català <debian-l10n-catalan@lists.debian.org>\n"
@@ -33,7 +33,9 @@ msgstr ""
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:2001
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:2001 ../fontconfig-config.templates:3001
 msgid "None"
 msgstr ""
 
@@ -73,30 +75,81 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
+msgid "Slight"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:3001
+msgid "Medium"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:3001
+msgid "Full"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+#, fuzzy
+#| msgid "Font tuning method for screen:"
+msgid "Automatic font hinting style:"
+msgstr "Mètode per a ajustar el tipus de lletra a la pantalla:"
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid ""
+"Please select the preferred automatic font hinting style to be used as the "
+"system default."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid ""
+"The hinting style is the amount of font reshaping done to line up to the "
+"grid. \"Slight\" will make the font more fuzzy to line up to the grid but "
+"will be better in retaining font shape, while \"Full\" will be a crisp font "
+"that aligns well to the pixel grid but will lose a greater amount of font "
+"shape. \"Slight\" is the default setting."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid "To revert to the pre-2.12 behavior, select \"Full\"."
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:4001
 msgid "Automatic"
 msgstr ""
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:3001
+#: ../fontconfig-config.templates:4001
 msgid "Always"
 msgstr ""
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:3001
+#: ../fontconfig-config.templates:4001
 msgid "Never"
 msgstr ""
 
 #. Type: select
 #. Description
-#: ../fontconfig-config.templates:3002
+#: ../fontconfig-config.templates:4002
 msgid "Enable subpixel rendering for screen:"
 msgstr "Voleu habilitar la renderització a nivell de sub-píxels?"
 
 #. Type: select
 #. Description
-#: ../fontconfig-config.templates:3002
+#: ../fontconfig-config.templates:4002
 msgid ""
 "Rendering text at a subpixel level generally makes it look a bit better on "
 "flat (LCD) screens, but can show color artifacts on CRT screens. The "
@@ -109,13 +162,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid "Enable bitmapped fonts by default?"
 msgstr "Voleu habilitar per defecte els tipus de lletra de mapa de bits?"
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid ""
 "By default, only outline fonts are used by applications which support "
 "fontconfig."
@@ -123,7 +176,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 #, fuzzy
 #| msgid ""
 #| "By default, only outline fonts are used by applications which support "

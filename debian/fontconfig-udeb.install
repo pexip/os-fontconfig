@@ -1,5 +1,5 @@
-debian/tmp/usr/lib/*/libfontconfig*.so.* usr/lib
-debian/tmp/usr/bin/fc-list
-debian/tmp/etc/fonts/fonts.conf
-debian/tmp/etc/fonts/conf.d/[1245689]*.conf
-debian/tmp/usr/share/fontconfig/conf.avail
+usr/lib/*/libfontconfig*.so.* usr/lib
+usr/bin/fc-list
+etc/fonts/fonts.conf
+etc/fonts/conf.d/[1245689]*.conf
+usr/share/fontconfig/conf.avail

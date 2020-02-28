@@ -2,25 +2,29 @@ Source: fontconfig
 Section: fonts
 Priority: optional
 Maintainer: Pexip AS <packaging@pexip.com>
-XSBC-Pexip-Original-Maintainer: Keith Packard <keithp@debian.org>
-XSBC-Pexip-Original-Uploaders: Josselin Mouette <joss@debian.org>
-Build-Depends: cdbs (>= 0.4.93),
-               dh-autoreconf,
-               debhelper (>= 9),
-               libfreetype6-dev (>= 2.1.7),
+XSBC-Pexip-Original-Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintainers@lists.alioth.debian.org>
+XSBC-Pexip-Original-Uploaders: Keith Packard <keithp@debian.org>,
+           Josselin Mouette <joss@debian.org>,
+           Emilio Pozuelo Monfort <pochu@debian.org>,
+Build-Depends: debhelper (>= 11),
+               libfreetype6-dev (>= 2.8.1),
                libexpat1-dev,
+               uuid-dev,
                pkg-config,
                gperf,
-               po-debconf
-Standards-Version: 3.9.3
+               po-debconf,
+               docbook <!nodoc>,
+               docbook-utils <!nodoc>,
+               texlive-formats-extra <!nodoc>
+Standards-Version: 4.2.1
+Vcs-Git: https://salsa.debian.org/freedesktop-team/fontconfig.git
+Vcs-Browser: https://salsa.debian.org/freedesktop-team/fontconfig
+Homepage: https://www.freedesktop.org/wiki/Software/fontconfig/
 XS-Pexip-Upstream: http://ftp.debian.org/debian/ buster
 
 Package: fontconfig
-Section: fonts
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, fontconfig-config
-Pre-Depends: dpkg (>= 1.16.1)
-Replaces: fontconfig-config (<< 2.5.93-1)
 Multi-Arch: foreign
 Description: generic font configuration library - support binaries
  Fontconfig is a font configuration and customization library, which
@@ -40,14 +44,12 @@ Description: generic font configuration library - support binaries
  available to fontconfig applications.
 
 Package: fontconfig-config
-Section: fonts
 Architecture: all
 Depends: ${misc:Depends},
          ucf (>= 0.29),
          fonts-dejavu-core | ttf-bitstream-vera | fonts-liberation | fonts-freefont
-Replaces: fontconfig (<< 2.3.2-2)
-Conflicts: fontconfig (<< 2.3.2-2)
 Multi-Arch: foreign
+Breaks: libfontconfig1 (<< 2.13.0)
 Description: generic font configuration library - configuration
  Fontconfig is a font configuration and customization library, which
  does not depend on the X Window System. It is designed to locate
@@ -58,9 +60,8 @@ Description: generic font configuration library - configuration
 
 Package: fontconfig-udeb
 Section: debian-installer
-XC-Package-Type: udeb
+Package-Type: udeb
 Architecture: any
-Priority: extra
 Depends: ${shlibs:Depends}
 Description: generic font configuration library - minimal runtime
  Fontconfig is a font configuration and customization library, which
@@ -75,7 +76,12 @@ Package: libfontconfig1-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Depends: libfontconfig1 (= ${binary:Version}), ${misc:Depends}, libexpat1-dev, libfreetype6-dev (>= 2.1.7), pkg-config
+Depends: libfontconfig1 (= ${binary:Version}),
+         ${misc:Depends},
+         libexpat1-dev,
+         libfreetype6-dev (>= 2.8.1),
+         uuid-dev,
+         pkg-config
 Provides: libfontconfig-dev
 Description: generic font configuration library - development
  Fontconfig is a font configuration and customization library, which
@@ -90,7 +96,6 @@ Package: libfontconfig1
 Section: libs
 Architecture: any
 Multi-Arch: same
-Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}, fontconfig-config (>= ${source:Version})
 Breaks: xpdf (<= 3.03-11)
 Provides: libfontconfig
@@ -102,20 +107,3 @@ Description: generic font configuration library - runtime
  .
  This package contains the runtime library needed to launch applications
  using fontconfig.
-
-Package: libfontconfig1-dbg
-Section: debug
-Priority: extra
-Architecture: any
-Depends: ${misc:Depends}, libfontconfig1 (= ${binary:Version})
-Description: generic font configuration library - debugging symbols
- Fontconfig is a font configuration and customization library, which
- does not depend on the X Window System. It is designed to locate
- fonts within the system and select them according to requirements
- specified by applications.
- .
- This package contains the debugging symbols associated with
- libfontconfig1. They will automatically be used by gdb for debugging
- fontconfig-related issues. It should be installed when experiencing crashes
- involving fontconfig so that a better backtrace is provided in
- the bug report.

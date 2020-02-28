@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ro\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
-"POT-Creation-Date: 2012-04-30 10:00-0700\n"
+"POT-Creation-Date: 2017-07-05 11:29+0200\n"
 "PO-Revision-Date: 2007-05-01 06:03+0300\n"
 "Last-Translator: Igor Stirbu <igor.stirbu@gmail.com>\n"
 "Language-Team: Romanian <debian-l10n-romanian@lists.debian.org>\n"
@@ -35,7 +35,9 @@ msgstr "autohinter"
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:2001
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:2001 ../fontconfig-config.templates:3001
 msgid "None"
 msgstr "nici unul"
 
@@ -70,30 +72,85 @@ msgstr ""
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
+msgid "Slight"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:3001
+msgid "Medium"
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:3001
+msgid "Full"
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+#, fuzzy
+#| msgid "Font tuning method for screen:"
+msgid "Automatic font hinting style:"
+msgstr "Metoda de ajustare a fontului pentru ecran:"
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+#, fuzzy
+#| msgid ""
+#| "Please select the preferred method for tuning fonts for screen rendering."
+msgid ""
+"Please select the preferred automatic font hinting style to be used as the "
+"system default."
+msgstr ""
+"Alegeți metoda preferată de ajustare a fonturilor pentru randarea pe ecran."
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid ""
+"The hinting style is the amount of font reshaping done to line up to the "
+"grid. \"Slight\" will make the font more fuzzy to line up to the grid but "
+"will be better in retaining font shape, while \"Full\" will be a crisp font "
+"that aligns well to the pixel grid but will lose a greater amount of font "
+"shape. \"Slight\" is the default setting."
+msgstr ""
+
+#. Type: select
+#. Description
+#: ../fontconfig-config.templates:3002
+msgid "To revert to the pre-2.12 behavior, select \"Full\"."
+msgstr ""
+
+#. Type: select
+#. Choices
+#: ../fontconfig-config.templates:4001
 msgid "Automatic"
 msgstr "automat"
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:3001
+#: ../fontconfig-config.templates:4001
 msgid "Always"
 msgstr "mereu"
 
 #. Type: select
 #. Choices
-#: ../fontconfig-config.templates:3001
+#: ../fontconfig-config.templates:4001
 msgid "Never"
 msgstr "niciodată"
 
 #. Type: select
 #. Description
-#: ../fontconfig-config.templates:3002
+#: ../fontconfig-config.templates:4002
 msgid "Enable subpixel rendering for screen:"
 msgstr "Activează randarea textului pe ecran la nivel de subpixel:"
 
 #. Type: select
 #. Description
-#: ../fontconfig-config.templates:3002
+#: ../fontconfig-config.templates:4002
 msgid ""
 "Rendering text at a subpixel level generally makes it look a bit better on "
 "flat (LCD) screens, but can show color artifacts on CRT screens. The "
@@ -106,13 +163,13 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid "Enable bitmapped fonts by default?"
 msgstr "Se activează implicit fonturile bitmap?"
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid ""
 "By default, only outline fonts are used by applications which support "
 "fontconfig."
@@ -122,7 +179,7 @@ msgstr ""
 
 #. Type: boolean
 #. Description
-#: ../fontconfig-config.templates:4001
+#: ../fontconfig-config.templates:5001
 msgid ""
 "Outline fonts are fonts which scale well to various sizes. In contrast, "
 "bitmapped fonts are often lower quality. Enabling this option will affect "
