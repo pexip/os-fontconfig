@@ -1,3 +1,9 @@
+fontconfig (2.13.1-2pexip1) pexip; urgency=medium
+
+  * Migrate to Buster
+
+ -- Vincent Sanders <vince@pexip.com>  Fri, 28 Feb 2020 16:33:59 +0000
+
 fontconfig (2.13.1-2) unstable; urgency=medium
 
   * Team upload.
