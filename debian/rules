@@ -10,7 +10,7 @@ endif
 	dh $@
 
 override_dh_auto_configure:
-	dh_auto_configure -- --enable-static $(BUILD_DOC) --with-add-fonts=/usr/X11R6/lib/X11/fonts,/usr/local/share/fonts
+	dh_auto_configure -- --enable-static $(BUILD_DOC) --with-add-fonts=/usr/local/share/fonts
 
 override_dh_makeshlibs:
 	dh_makeshlibs -plibfontconfig1 -V"libfontconfig1 (>= 2.13)" --add-udeb="fontconfig-udeb" -- -c4

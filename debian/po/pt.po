@@ -87,18 +87,21 @@ msgstr "Total"
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
+#| msgid "Font tuning method for screen (system default):"
 msgid "Automatic font hinting style:"
 msgstr "Estilo de desenho do tipo de letra automático:"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
+#| msgid ""
+#| "Please select the preferred method for tuning fonts for screen rendering."
 msgid ""
 "Please select the preferred automatic font hinting style to be used as the "
 "system default."
 msgstr ""
-"Por favor seleccione o estilo de desenho do tipo de letra automático a ser "
-"usado como predefinição do sistema."
+"Por favor seleccione o estilo de desenho do tipo de letra automático a "
+"ser usado como predefinição do sistema."
 
 #. Type: select
 #. Description
@@ -111,8 +114,8 @@ msgid ""
 "shape. \"Slight\" is the default setting."
 msgstr ""
 "O estilo de desenho do tipo de letra é a parte de redesenhamento efectuado "
-"de modo a encaixar na grelha. \"Ligeiro\" tornará o tipo de letra mais "
-"desfocado de modo a encaixar na grelha mas manterá mais fielmente o formato "
+"de modo a encaixar na grelha. \"Ligeiro\" tornará o tipo de letra mais"
+" desfocado de modo a encaixar na grelha mas manterá mais fielmente o formato "
 "do tipo de letra. O \"Total\" será um tipo de letra mais contundente que se "
 "adapta melhor à grelha do pixel mas perderá uma grande parte do formato do "
 "tipo de letra. \"Ligeiro\" é a configuração predefinida."
