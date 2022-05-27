@@ -1,0 +1,13 @@
+The script is set -u so needs to cope with variable not being set
+
+--- a/test/run-test-conf.sh
++++ b/test/run-test-conf.sh
+@@ -23,7 +23,7 @@
+ # PERFORMANCE OF THIS SOFTWARE.
+ set -eu
+ 
+-case "$OSTYPE" in
++case "${OSTYPE:=}" in
+     msys ) MyPWD=`pwd -W` ;;  # On Msys/MinGW, returns a MS Windows style path.
+     *    ) MyPWD=`pwd`    ;;  # On any other platforms, returns a Unix style path.
+ esac

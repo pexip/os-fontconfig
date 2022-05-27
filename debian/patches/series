@@ -3,3 +3,4 @@
 skip-dpkg-tmp-files.patch
 path_max.patch
 do_not_remove_uuid.patch
+fix_test_runner
