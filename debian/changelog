@@ -1,3 +1,48 @@
+fontconfig (2.13.1-4.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Hopefully this otherwise dummy upload lets us work around bug #960679.
+  * Add missing Breaks for the -doc package split (closes: #960598)
+
+ -- Julien Cristau <jcristau@debian.org>  Fri, 15 May 2020 12:55:02 +0200
+
+fontconfig (2.13.1-4.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Cherry-pick an extra upstream patch to fix a regression in 2.13.1-4.
+    Closes: #959800.  Thanks, Jonathan Kew!
+
+ -- Julien Cristau <jcristau@debian.org>  Wed, 13 May 2020 12:21:13 +0200
+
+fontconfig (2.13.1-4) unstable; urgency=medium
+
+  * Backport upstream patches to fix a few memory leaks. Closes: #956157.
+  * The last upload had to go through NEW, so this source-only upload will
+    allow fontconfig to be a candidate for testing migration.
+    Closes: #958106.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Tue, 21 Apr 2020 13:18:00 +0200
+
+fontconfig (2.13.1-3) unstable; urgency=medium
+
+  [ Laurent Bigonville ]
+  * debian/rules: Stop looking for fonts in /usr/X11R6/lib/X11/fonts, nothing
+    is installing fonts there for years and it's causing gnome-settings-daemon
+    to check the location every few seconds (Closes: #568686)
+
+  [ Fabian Greffrath ]
+  * fontconfig-config: extend, clean-up and order fontconfig-config's
+    font dependencies (Closes: #879503)
+
+  [ Emilio Pozuelo Monfort ]
+  * Split documentation into a -doc package to avoid multi-arch problems in
+    the -dev one (Closes: #935760, #844607)
+  * Since we're going through NEW, rename libfontconfig1-dev to
+    libfontconfig-dev and provide the former.
+  * Switch to debhelper-compat.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Wed, 18 Mar 2020 00:56:46 +0100
+
 fontconfig (2.13.1-2pexip3) pexip; urgency=medium
 
   * Rebuild in buster environment

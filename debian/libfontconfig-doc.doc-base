@@ -7,11 +7,11 @@ Abstract: Developer reference for the fontconfig library.
 Section: Programming
 
 Format: PDF
-Files: /usr/share/doc/libfontconfig1-dev/fontconfig-devel.pdf.gz
+Files: /usr/share/doc/libfontconfig-dev/fontconfig-devel.pdf.gz
 
 Format: Text
-Files: /usr/share/doc/libfontconfig1-dev/fontconfig-devel.txt.gz
+Files: /usr/share/doc/libfontconfig-dev/fontconfig-devel.txt.gz
 
 Format: HTML
-Index: /usr/share/doc/libfontconfig1-dev/fontconfig-devel/index.html
-Files: /usr/share/doc/libfontconfig1-dev/fontconfig-devel/*.html
+Index: /usr/share/doc/libfontconfig-dev/fontconfig-devel/index.html
+Files: /usr/share/doc/libfontconfig-dev/fontconfig-devel/*.html
