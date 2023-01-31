@@ -68,39 +68,35 @@ msgstr ""
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Slight"
-msgstr ""
+msgstr "Lätt"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Medium"
-msgstr ""
+msgstr "Mellan"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Full"
-msgstr ""
+msgstr "Full"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid "Font tuning method for screen (system default):"
 msgid "Automatic font hinting style:"
-msgstr "Metod för justerings av typsnitt för skärm (systemstandard):"
+msgstr "Automatisk justering av skärmrendering av typsnitt:"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid ""
-#| "Please select the preferred method for tuning fonts for screen rendering."
 msgid ""
 "Please select the preferred automatic font hinting style to be used as the "
 "system default."
 msgstr ""
-"Välj den metod som föredras för justering av skärmrendering av typsnitt."
+"Välj den metod som föredras för justering av skärmrendering av typsnitt att "
+"använda som systemstandard."
 
 #. Type: select
 #. Description
@@ -112,12 +108,17 @@ msgid ""
 "that aligns well to the pixel grid but will lose a greater amount of font "
 "shape. \"Slight\" is the default setting."
 msgstr ""
+"Skärmjustering av typsnitt är mängden av fonten som omformas för att linjera "
+"med rutnätet. \"Lätt\" gör fonter mer suddig för att linjera med rutnätet "
+"men kommer vara bättre på att bibehålla typsnittets form, medan \"Full\" ger "
+"en skarpt typsnitt som linjerar väl med rutnätet men kommer förlora en "
+"stärre andel  av typsnittets form. \"Lätt\" är standard-inställningen."
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
 msgid "To revert to the pre-2.12 behavior, select \"Full\"."
-msgstr ""
+msgstr "För att återgå till beteendet före 2.12, välj \"Full\"."
 
 #. Type: select
 #. Choices

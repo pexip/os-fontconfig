@@ -23,11 +23,15 @@ override_dh_clean:
 	chmod +w debian/po/*.po
 	debconf-updatepo
 
-override_dh_install-indep:
-	dh_install -i
+execute_after_dh_install-arch:
 	cd debian/fontconfig-config/usr/share/fontconfig/conf.avail && \
 		mv 70-yes-bitmaps.conf 70-force-bitmaps.conf
 	cp debian/70-yes-bitmaps.conf debian/fontconfig-config/usr/share/fontconfig/conf.avail/
-	# Do not ship 10-hinting-slight.conf symlink by default, let debconf handle
-	# that so the administrator can configure it. Still default to slight hinting.
-	rm debian/fontconfig-config/etc/fonts/conf.d/10-hinting-slight.conf
+	# Do not ship default conf files handled by debconf so the administrator can configure it.
+	rm debian/fontconfig-config/etc/fonts/conf.d/10-hinting-slight.conf \
+		debian/fontconfig-config/etc/fonts/conf.d/10-sub-pixel-rgb.conf
+
+# one of the tests makes sure that the uuid changes, so we have to run tests
+# without SOURCE_DATE_EPOCH set
+override_dh_auto_test:
+	env --unset=SOURCE_DATE_EPOCH dh_auto_test

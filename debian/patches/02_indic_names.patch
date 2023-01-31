@@ -11,7 +11,7 @@ Last-Update: 2013-06-09
 
 --- fontconfig-2.9.0.orig/conf.d/65-nonlatin.conf
 +++ fontconfig-2.9.0/conf.d/65-nonlatin.conf
-@@ -19,8 +19,6 @@
+@@ -20,8 +20,6 @@
  			<family>Urdu Nastaliq Unicode</family> <!-- arabic (ur) -->
  			<family>Raghindi</family> <!-- devanagari -->
  			<family>Mukti Narrow</family> <!-- bengali -->
@@ -20,16 +20,7 @@ Last-Update: 2013-06-09
  			<family>padmaa</family> <!-- gujarati -->
  			<family>Hapax Berbère</family> <!-- tifinagh -->
  			<family>MS Mincho</family> <!-- han (ja) -->
-@@ -58,7 +56,7 @@
- 			<family>Lohit Sindhi</family>
-  			<family>Lohit Punjabi</family>
-  			<family>Lohit Tamil</family>
--			<family>Meera</family>
-+			<family>Rachana</family>
- 			<family>Lohit Malayalam</family>
-  			<family>Lohit Kannada</family>
-  			<family>Lohit Telugu</family>
-@@ -90,8 +88,6 @@
+@@ -89,8 +88,6 @@
  			<family>Urdu Nastaliq Unicode</family> <!-- arabic (ur) -->
  			<family>Raghindi</family> <!-- devanagari -->
  			<family>Mukti Narrow</family> <!-- bengali -->

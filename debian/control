@@ -3,13 +3,13 @@ Section: fonts
 Priority: optional
 Maintainer: Debian freedesktop.org maintainers <pkg-freedesktop-maintainers@lists.alioth.debian.org>
 Uploaders: Keith Packard <keithp@debian.org>,
-           Josselin Mouette <joss@debian.org>,
            Emilio Pozuelo Monfort <pochu@debian.org>,
 Build-Depends: debhelper-compat (= 11),
-               libfreetype6-dev (>= 2.8.1),
+               libfreetype-dev (>= 2.8.1),
                libexpat1-dev,
                uuid-dev,
                pkg-config,
+               python3:any,
                gperf,
                po-debconf,
 Build-Depends-Indep: docbook <!nodoc>,
@@ -42,9 +42,8 @@ Description: generic font configuration library - support binaries
  available to fontconfig applications.
 
 Package: fontconfig-config
-Architecture: all
+Architecture: any
 Depends: ${misc:Depends},
-         ucf (>= 0.29),
 # Bitstream Vera and derivatives
          fonts-dejavu-core | ttf-bitstream-vera |
 # clones of Arial, Times New Roman and Courier New
@@ -64,6 +63,7 @@ Description: generic font configuration library - configuration
 Package: fontconfig-udeb
 Section: debian-installer
 Package-Type: udeb
+Build-Profiles: <!noudeb>
 Architecture: any
 Depends: ${shlibs:Depends}
 Description: generic font configuration library - minimal runtime
@@ -82,7 +82,7 @@ Multi-Arch: same
 Depends: libfontconfig1 (= ${binary:Version}),
          ${misc:Depends},
          libexpat1-dev,
-         libfreetype6-dev (>= 2.8.1),
+         libfreetype-dev (>= 2.8.1),
          uuid-dev,
          pkg-config
 Provides: libfontconfig1-dev (= ${source:Version})

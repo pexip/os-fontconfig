@@ -13,7 +13,7 @@
 #      Rudy Godoy <rudy@stone-head.org>, 2007
 #      Omar Campagne <ocampagne@gmail.com>
 #
-#  Traductores, si no conoce el formato PO, merece la pena leer la 
+#  Traductores, si no conoce el formato PO, merece la pena leer la
 #  documentación de gettext, especialmente las secciones dedicadas a este
 #  formato, por ejemplo ejecutando:
 #         info -n '(gettext)PO Files'
@@ -35,13 +35,14 @@ msgstr ""
 "Project-Id-Version: fontconfig 2.9.0-6\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
 "POT-Creation-Date: 2017-07-05 11:29+0200\n"
-"PO-Revision-Date: 2007-04-17 02:01-0500\n"
-"Last-Translator: Omar Campagne <ocampagne@gmail.com>\n"
+"PO-Revision-Date: 2022-12-09 16:33+0100\n"
+"Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
 
 #. Type: select
 #. Choices
@@ -97,42 +98,35 @@ msgstr ""
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Slight"
-msgstr ""
+msgstr "Ligero"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Medium"
-msgstr ""
+msgstr "Medio"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid "Font tuning method for screen (system default):"
 msgid "Automatic font hinting style:"
-msgstr ""
-"Método para el ajuste de tipo de letra para pantalla (valorpredefinido del "
-"sistema):"
+msgstr "Optimización automática de los tipos de letra:"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid ""
-#| "Please select the preferred method for tuning fonts for screen rendering."
 msgid ""
 "Please select the preferred automatic font hinting style to be used as the "
 "system default."
 msgstr ""
-"Seleccione el método que prefiere para el ajuste de los tipos de letra para "
-"la reproducción en pantalla."
+"Seleccione la optimización automática de los tipos de letra que prefiere "
+"usar como predeterminada del sistema."
 
 #. Type: select
 #. Description
@@ -144,12 +138,20 @@ msgid ""
 "that aligns well to the pixel grid but will lose a greater amount of font "
 "shape. \"Slight\" is the default setting."
 msgstr ""
+"La optimización de los tipos de letra es la cantidad de remodelación "
+"realizada para alinearla con la cuadrícula. El estilo «Ligero» hace que la "
+"alineación de la fuente sea más imprecisa, pero conserva mejor su forma, "
+"mientras que «Completo» dará como resultado un tipo de letra nítida alineada "
+"con la cuadrícula de píxeles, pero perderá más su forma. «Ligero» es la "
+"opción predeterminada."
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
 msgid "To revert to the pre-2.12 behavior, select \"Full\"."
 msgstr ""
+"Para volver al comportamiento anterior a la versión 2.12, seleccione "
+"«Completo»."
 
 #. Type: select
 #. Choices
