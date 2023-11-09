@@ -20,7 +20,7 @@ Standards-Version: 4.2.1
 Vcs-Git: https://salsa.debian.org/freedesktop-team/fontconfig.git
 Vcs-Browser: https://salsa.debian.org/freedesktop-team/fontconfig
 Homepage: https://www.freedesktop.org/wiki/Software/fontconfig/
-XS-Pexip-Upstream: http://deb.debian.org/debian/ bullseye
+XS-Pexip-Upstream: http://deb.debian.org/debian/ bookworm
 
 Package: fontconfig
 Architecture: any
