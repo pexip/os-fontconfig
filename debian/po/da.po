@@ -1,19 +1,19 @@
 # Danish translation fontconfig.
-# Copyright (C) 2012 fontconfig & nedenstående oversættere.
+# Copyright (C) 2019 fontconfig & nedenstående oversættere.
 # This file is distributed under the same license as the fontconfig package.
 # Reviewed by Ole Laursen, 2004.
 # Claus Hindsgaul <claus.hindsgaul@gmail.com>, 2004, 2005, 2006.
-# Joe Hansen (joedalton2@yahoo.dk), 2010, 2012.
+# Joe Hansen (joedalton2@yahoo.dk), 2010, 2012, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fontconfig\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
 "POT-Creation-Date: 2017-07-05 11:29+0200\n"
-"PO-Revision-Date: 2012-05-24 17:30+01:00\n"
+"PO-Revision-Date: 2019-02-23 17:30+01:00\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org> \n"
-"Language: \n"
+"Language: da\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,39 +68,35 @@ msgstr ""
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Slight"
-msgstr ""
+msgstr "Let"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Medium"
-msgstr ""
+msgstr "Mellem"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Full"
-msgstr ""
+msgstr "Fuld"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid "Font tuning method for screen (system default):"
 msgid "Automatic font hinting style:"
-msgstr "Skriftjusteringsmetode for skærm (systemstandard):"
+msgstr "Automatisk hinting-stil for skrifttype:"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid ""
-#| "Please select the preferred method for tuning fonts for screen rendering."
 msgid ""
 "Please select the preferred automatic font hinting style to be used as the "
 "system default."
 msgstr ""
-"Vælg venligst den foretrukne metode til skriftjustering til skærmoptegning."
+"Vælg venligst den foretrukne automatiske hinting-stil for skrifttypen, der "
+"skal bruges som systemstandard."
 
 #. Type: select
 #. Description
@@ -112,12 +108,17 @@ msgid ""
 "that aligns well to the pixel grid but will lose a greater amount of font "
 "shape. \"Slight\" is the default setting."
 msgstr ""
+"Hinting-stilen er mængden af omformning af skrifttypen gjort for at tilpasse "
+"gitteret. »Let« vil gør skrifttypen mere utydelig at tilpasse til gitteret "
+"men vil være bedre til at bevare skriftformen, mens »Fuld« vil være en "
+"sprøg skrifttype, der justerer sig godt til billedpunktgitteret, men vil "
+"miste en større mængde af skriftformen. »Let« er standardindstillingen."
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
 msgid "To revert to the pre-2.12 behavior, select \"Full\"."
-msgstr ""
+msgstr "For at gå tilbgae til præ-2.12-opførelsen, vælg »Fuld«."
 
 #. Type: select
 #. Choices

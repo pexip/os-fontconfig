@@ -3,15 +3,15 @@
 # This file is distributed under the same as the fontconfig package.
 # André Luis Lopes <andrelop@debian.org>, 2009.
 # Fernando Ike de Oliveira <fike@midstorm.org>, 2013.
-# Adriano Rafael Gomes <adrianorg@arg.eti.br>, 2014-2015.
+# Adriano Rafael Gomes <adrianorg@debian.org>, 2014-2020.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: fontconfig\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
 "POT-Creation-Date: 2017-07-05 11:29+0200\n"
-"PO-Revision-Date: 2015-09-18 20:24-0300\n"
-"Last-Translator: Adriano Rafael Gomes <adrianorg@arg.eti.br>\n"
+"PO-Revision-Date: 2020-09-12 18:29-0300\n"
+"Last-Translator: Adriano Rafael Gomes <adrianorg@debian.org>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "Language: pt_BR\n"
@@ -71,40 +71,35 @@ msgstr ""
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Slight"
-msgstr ""
+msgstr "Leve"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Medium"
-msgstr ""
+msgstr "Médio"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Full"
-msgstr ""
+msgstr "Completo"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid "Font tuning method for screen (system default):"
 msgid "Automatic font hinting style:"
-msgstr "Método de ajuste de fonte para tela (padrão do sistema):"
+msgstr "Estilo de ajuste de fonte automático:"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid ""
-#| "Please select the preferred method for tuning fonts for screen rendering."
 msgid ""
 "Please select the preferred automatic font hinting style to be used as the "
 "system default."
 msgstr ""
-"Por favor, selecione o método preferido para ajustar as fontes para "
-"renderização em tela."
+"Por favor, selecione o estilo de ajuste de fonte automático preferido para "
+"ser usado como o padrão do sistema."
 
 #. Type: select
 #. Description
@@ -116,12 +111,17 @@ msgid ""
 "that aligns well to the pixel grid but will lose a greater amount of font "
 "shape. \"Slight\" is the default setting."
 msgstr ""
+"O estilo de ajuste é o quanto a fonte será remodelada para se alinhar à "
+"grade. \"Leve\" fará o alinhamento da fonte à grade menos preciso, mas será "
+"melhor em manter o formato original da fonte, enquanto \"Completo\" fará o "
+"alinhamento à grade mais preciso, mas não manterá tão bem o formato original "
+"da fonte. A configuração padrão é \"Leve\"."
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
 msgid "To revert to the pre-2.12 behavior, select \"Full\"."
-msgstr ""
+msgstr "Para reverter para o comportamento pre-2.12, selecione \"Completo\"."
 
 #. Type: select
 #. Choices
