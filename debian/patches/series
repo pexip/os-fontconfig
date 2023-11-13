@@ -3,4 +3,4 @@
 skip-dpkg-tmp-files.patch
 disable-crbug1004354.patch
 make-byteReverse-hidden.patch
-fix_test_runner
+pexip_fix_test_runner.patch
