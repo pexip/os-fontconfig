@@ -1,10 +1,12 @@
 The script is set -u so needs to cope with variable not being set
 
---- a/test/run-test-conf.sh
-+++ b/test/run-test-conf.sh
+Index: os-fontconfig/test/run-test-conf.sh
+===================================================================
+--- os-fontconfig.orig/test/run-test-conf.sh
++++ os-fontconfig/test/run-test-conf.sh
 @@ -23,7 +23,7 @@
  # PERFORMANCE OF THIS SOFTWARE.
- set -eu
+ set -e
  
 -case "$OSTYPE" in
 +case "${OSTYPE:=}" in
