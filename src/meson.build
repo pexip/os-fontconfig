@@ -31,7 +31,7 @@ fc_sources = [
 
 # FIXME: obviously fragile, cc.preprocess would be sweet
 cpp = cc.cmd_array()
-if cc.get_id() == 'gcc'
+if cc.get_id() in ['gcc', 'emscripten']
   cpp += ['-E', '-P']
 elif cc.get_id() == 'msvc'
   cpp += ['/EP']
