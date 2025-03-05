@@ -1,0 +1,12 @@
+Adds support for armclang compiler
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -35,7 +35,7 @@
+   cpp += ['-E', '-P']
+ elif cc.get_id() == 'msvc'
+   cpp += ['/EP']
+-elif cc.get_id() == 'clang'
++elif ['clang', 'armltdclang'].contains(cc.get_id())
+   cpp += ['-E', '-P']
+ else
+   error('FIXME: implement cc.preprocess')
