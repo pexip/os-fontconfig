@@ -35,7 +35,7 @@ msgstr ""
 "Project-Id-Version: fontconfig 2.9.0-6\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
 "POT-Creation-Date: 2017-07-05 11:29+0200\n"
-"PO-Revision-Date: 2022-12-09 16:33+0100\n"
+"PO-Revision-Date: 2023-09-11 13:33+0200\n"
 "Last-Translator: Camaleón <noelamac@gmail.com>\n"
 "Language-Team: Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: es\n"
@@ -69,7 +69,7 @@ msgstr "Ninguno"
 #: ../fontconfig-config.templates:2002
 msgid "Font tuning method for screen (system default):"
 msgstr ""
-"Método para el ajuste de tipo de letra para pantalla (valorpredefinido del "
+"Método para el ajuste de tipo de letra para pantalla (valor predefinido del "
 "sistema):"
 
 #. Type: select

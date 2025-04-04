@@ -1,5 +1,9 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs
+export DPKG_GENSYMBOLS_CHECK_LEVEL = 4
+
 ifneq ($(filter nodoc,$(DEB_BUILD_PROFILES)),)
 	BUILD_DOC := --disable-docs
 else
@@ -13,13 +17,9 @@ override_dh_auto_configure:
 	dh_auto_configure -- --enable-static $(BUILD_DOC) --with-add-fonts=/usr/local/share/fonts
 
 override_dh_makeshlibs:
-	dh_makeshlibs -plibfontconfig1 -V"libfontconfig1 (>= 2.13)" --add-udeb="fontconfig-udeb" -- -c4
+	dh_makeshlibs --add-udeb="fontconfig-udeb"
 
-override_dh_strip:
-	dh_strip --dbgsym-migration='libfontconfig1-dbg (<< 2.12.1-0.1~)'
-
-override_dh_clean:
-	dh_clean
+execute_after_dh_clean:
 	chmod +w debian/po/*.po
 	debconf-updatepo
 
@@ -27,9 +27,9 @@ execute_after_dh_install-arch:
 	cd debian/fontconfig-config/usr/share/fontconfig/conf.avail && \
 		mv 70-yes-bitmaps.conf 70-force-bitmaps.conf
 	cp debian/70-yes-bitmaps.conf debian/fontconfig-config/usr/share/fontconfig/conf.avail/
-	# Do not ship default conf files handled by debconf so the administrator can configure it.
-	rm debian/fontconfig-config/etc/fonts/conf.d/10-hinting-slight.conf \
-		debian/fontconfig-config/etc/fonts/conf.d/10-sub-pixel-rgb.conf
+	# Do not ship 10-hinting-slight.conf symlink by default, let debconf handle
+	# that so the administrator can configure it. Still default to slight hinting.
+	rm debian/fontconfig-config/etc/fonts/conf.d/10-hinting-slight.conf
 
 # one of the tests makes sure that the uuid changes, so we have to run tests
 # without SOURCE_DATE_EPOCH set
