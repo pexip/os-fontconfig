@@ -29,6 +29,23 @@ if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.12.3-0.2~"; t
         ln -s $CONFAVAIL/10-hinting-slight.conf $CONFDIR/10-hinting-slight.conf
 fi
 
+# Replace symlinks obsoleted by upstream with their equivalent new ones
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.14.2-5~"; then
+    if [ -h $CONFDIR/10-no-sub-pixel.conf ] && ! readlink -e $CONFDIR/10-no-sub-pixel.conf >/dev/null; then
+        rm $CONFDIR/10-no-sub-pixel.conf
+        test -e $CONFDIR/10-sub-pixel-none.conf || \
+          ln -s $CONFAVAIL/10-sub-pixel-none.conf $CONFDIR/10-sub-pixel-none.conf
+    fi
+fi
+
+if [ "$1" = "configure" ] && dpkg --compare-versions "$2" le-nl "2.15.0-1.1~"; then
+    if [ -h $CONFDIR/70-no-bitmaps.conf ]; then
+        rm $CONFDIR/70-no-bitmaps.conf
+        test -e $CONFDIR/70-no-bitmaps-except-emoji.conf || \
+          ln -s $CONFAVAIL/70-no-bitmaps-except-emoji.conf $CONFDIR/70-no-bitmaps-except-emoji.conf
+    fi
+fi
+
 if is_initial_configuration "$@"; then
     db_get fontconfig/hinting_type
     hinting_type="$RET"
@@ -94,7 +111,7 @@ if is_initial_configuration "$@"; then
     subpixel_rendering="$RET"
 
     subpixel="10-sub-pixel-rgb.conf"
-    no_subpixel="10-no-sub-pixel.conf"
+    no_subpixel="10-sub-pixel-none.conf"
 
     if [ -h $CONFDIR/$subpixel ]; then
     	rm $CONFDIR/$subpixel
@@ -120,7 +137,7 @@ if is_initial_configuration "$@"; then
     enable_bitmaps="$RET"
 
     yes_bitmaps="70-yes-bitmaps.conf"
-    no_bitmaps="70-no-bitmaps.conf"
+    no_bitmaps="70-no-bitmaps-except-emoji.conf"
 
     if [ -h $CONFDIR/$yes_bitmaps ]; then
     	rm $CONFDIR/$yes_bitmaps
@@ -143,10 +160,12 @@ fi # end changes applied only for initial config / reconfiguration
 # Create /usr/local/share/fonts
 LOCALDIR=/usr/local/share/fonts
 if [ ! -d $LOCALDIR ]; then
-  if mkdir $LOCALDIR 2>/dev/null ; then
-    chmod 2775 $LOCALDIR
-    chown root:staff $LOCALDIR
-  fi
+  mkdir -p $LOCALDIR 2>/dev/null
+fi
+
+if [ -f /etc/staff-group-for-usr-local ]; then
+  chmod 2775 $LOCALDIR
+  chown root:staff $LOCALDIR
 fi
 
 # fontconfig-config 2.11.0-5 (and earlier) created /etc/fonts.conf.d by mistake

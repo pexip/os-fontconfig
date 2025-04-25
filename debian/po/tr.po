@@ -1,33 +1,35 @@
 # Turkish translation of fontconfig.
 # This file is distributed under the same license as the fontconfig package.
 # Gürkan Aslan <gurkan@iaslan.com>, 2004.
-# İsmail Baydan <ibaydan@gmail.com> 2011.
+# İsmail Baydan <ibaydan@gmail.com>, 2011.
+# Mert Dirik <mertdirik@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: fontconfig\n"
 "Report-Msgid-Bugs-To: fontconfig@packages.debian.org\n"
 "POT-Creation-Date: 2017-07-05 11:29+0200\n"
-"PO-Revision-Date: 2014-08-01 03:35+0200\n"
-"Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
+"PO-Revision-Date: 2023-01-04 10:03+0300\n"
+"Last-Translator: Atila KOÇ <koc@artielektronik.com.tr>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Poedit 2.4.2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:2001
 msgid "Native"
-msgstr "Yerel"
+msgstr "Native"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:2001
 msgid "Autohinter"
-msgstr "Otomatik kaplayıcı"
+msgstr "Autohinter"
 
 #. Type: select
 #. Choices
@@ -41,7 +43,7 @@ msgstr "Hiçbiri"
 #. Description
 #: ../fontconfig-config.templates:2002
 msgid "Font tuning method for screen (system default):"
-msgstr "Ekran için yazıtipi ince ayar yöntemi (öntanımlı sistem ayarı):"
+msgstr "Ekran gösterimi için yazı tipi ayarlama yöntemi:"
 
 #. Type: select
 #. Description
@@ -49,7 +51,7 @@ msgstr "Ekran için yazıtipi ince ayar yöntemi (öntanımlı sistem ayarı):"
 msgid ""
 "Please select the preferred method for tuning fonts for screen rendering."
 msgstr ""
-"Ekranda gösterilmesi için tercih edilen ayarlama font metodunu seçiniz."
+"Yazı tiplerinin ekranınıza uyumunu iyileştirecek uyarlama yöntemini seçin."
 
 #. Type: select
 #. Description
@@ -59,48 +61,45 @@ msgid ""
 "the Microsoft fonts. Select 'Autohinter' if you mostly use other TrueType "
 "fonts. Select 'None' if you want blurry text."
 msgstr ""
-"Genellikle (Debian'da varsayılan) DejaVu yu kullanıyorsanız 'Yerel'i veya "
-"Microsoft fontlarından birini seçiniz.Çoğunlukla TrueType "
-"kullanıyorsanız'Autohinter'ı seçiniz.Bulanık metinler için 'Hiçbiri'ı "
-"seçiniz."
+"\"Font hinting\", özetle, yazı tiplerinin ekran çözünürlüğüne göre "
+"düzenlenmelerini ve böylece daha iyi görünmelerini sağlar. Debian'ın ön "
+"tanımlı yazı tipi olan DejaVu yazı tipini ya da Microsoft yazı tiplerinden "
+"birini kullanıyorsanız, 'Native' seçeneğini; başka TrueType yazı tiplerinden "
+"birini kullanıyorsanız, 'Autohinter' seçeneğini seçebilirsiniz. Yazı "
+"tiplerinin uyarlama yapılmadan gösterilmesi için 'Hiçbiri' seçenegini "
+"seçiniz. Uyarlama yapılmadığında metinler genellikle bulanık görünürler."
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Slight"
-msgstr ""
+msgstr "Az"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Medium"
-msgstr ""
+msgstr "Orta"
 
 #. Type: select
 #. Choices
 #: ../fontconfig-config.templates:3001
 msgid "Full"
-msgstr ""
+msgstr "Tam"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid "Font tuning method for screen (system default):"
 msgid "Automatic font hinting style:"
-msgstr "Ekran için yazıtipi ince ayar yöntemi (öntanımlı sistem ayarı):"
+msgstr "Otomatik yazı tipi uyarlama tarzı:"
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
-#, fuzzy
-#| msgid ""
-#| "Please select the preferred method for tuning fonts for screen rendering."
 msgid ""
 "Please select the preferred automatic font hinting style to be used as the "
 "system default."
-msgstr ""
-"Ekranda gösterilmesi için tercih edilen ayarlama font metodunu seçiniz."
+msgstr "Sistem geneline uygulanacak otomatik yazı tipi uyarlama tarzını seçin."
 
 #. Type: select
 #. Description
@@ -112,12 +111,19 @@ msgid ""
 "that aligns well to the pixel grid but will lose a greater amount of font "
 "shape. \"Slight\" is the default setting."
 msgstr ""
+"Uyarlama tarzı yazı tipinin ekranın ızgarasına, piksellerine uyarlanırken ne "
+"kadar değiştirileceğidir. \"Az\" seçimininde yazı tipi ekranın yapısına tam "
+"uymayabilir ama daha kendi gibi görünecektir. \"Tam\" seçiminde ise yazı "
+"tipi ekranın yapısına daha çok uysun diye keskin bir hal alacaktır ama "
+"aslından uzaklaşacaktır. \"Az\" seçimi ön tanımlıdır; tarzınıza göre seçin."
 
 #. Type: select
 #. Description
 #: ../fontconfig-config.templates:3002
 msgid "To revert to the pre-2.12 behavior, select \"Full\"."
 msgstr ""
+"2.12 sürümünden önceki gibi kullanmayı isterseniz, \"Tam\" seçeneğini "
+"seçiniz."
 
 #. Type: select
 #. Choices
@@ -141,7 +147,7 @@ msgstr "Hiçbir zaman"
 #. Description
 #: ../fontconfig-config.templates:4002
 msgid "Enable subpixel rendering for screen:"
-msgstr "Ekran için altpiksel taramasını etkinleştir:"
+msgstr "Alt piksel dönüşümü:"
 
 #. Type: select
 #. Description
@@ -151,15 +157,15 @@ msgid ""
 "flat (LCD) screens, but can show color artifacts on CRT screens. The "
 "\"Automatic\" choice will enable it only if a LCD screen is detected."
 msgstr ""
-"Metni altpiksel seviyesinde göstermek düz (LCD) ekranlarda biraz daha iyi "
-"görünmesini sağlar, fakat CRT ekranlarda yapay renkleri gösterir.\"Automatic"
-"\" seçeneği sadece LCD ekran algılanırsa aktif edilecek."
+"Metni altpiksel seviyesinde dönüştürmek LCD ekranlarda biraz işe yarar; "
+"fakat CRT ekranlarda yapay renkleri gösterir. \"Otomatik\" seçeneğinde "
+"yalnızca LCD bir ekran algılanırsa dönüşüm yapılacaktır."
 
 #. Type: boolean
 #. Description
 #: ../fontconfig-config.templates:5001
 msgid "Enable bitmapped fonts by default?"
-msgstr "Biteşlemli yazıtipleri öntanımlı olarak etkinleştirilsin mi?"
+msgstr "Biteşlemli yazı tipleri ön tanımlı olarak etkinleştirilsin mi?"
 
 #. Type: boolean
 #. Description
@@ -168,8 +174,8 @@ msgid ""
 "By default, only outline fonts are used by applications which support "
 "fontconfig."
 msgstr ""
-"Sadece sınır fontları,varsayılan olarak fontconfig deskteklik yazılımlar "
-"tarafından kullanılır."
+"Çerçeve yazı tipleri, ön tanımlı olarak, yalnızca fontconfig desteği olan "
+"yazılımlar tarafından kullanılır."
 
 #. Type: boolean
 #. Description
@@ -180,11 +186,12 @@ msgid ""
 "the systemwide default; this and many other fontconfig options may be "
 "enabled or disabled on a per-user basis."
 msgstr ""
-"Ölçeklenebilir yazıtipleri kalitesinden birşey kaybetmeden çeşitli boyutlara "
-"ölçeklendirilebilir.  Buna karşılık, biteşlemli yazıtipleri çoğunlukla düşük "
-"kalitelidir.  Bu seçeneği etkinleştirmek sistem genelinde geçerli öntanımlı "
-"ayarları etkileyecektir;kullanıma göre bu ve diğer bir çok fontconfig "
-"özelliği aktif yada pasif hale getirilebilir."
+"Çerçeve yazı tipleri karakterlerin yalnızca sınır çizgilerinden oluşan yazı "
+"tipleridir ve çeşitli boyutlara kolayca ölçeklenebilirler. Buna karşın, bit "
+"eşlemli yazı tipleri ölçeklendirilirken bozulabilirler. Bu seçeneği "
+"etkinleştirmek sistem genelinde geçerli ön tanımlı ayarları belirleyecektir; "
+"ancak bu ve diğer bir çok fontconfig özelliği kullanıcı özelinde etkin ya da "
+"edilgin yapılabilir."
 
 #~ msgid "With what method should fonts be hinted?"
 #~ msgstr "Metinler hangi yöntemle kaplansın?"

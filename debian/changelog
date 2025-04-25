@@ -1,3 +1,141 @@
+fontconfig (2.15.0-2.3) unstable; urgency=medium
+
+  * Non-maintainer upload.
+
+  [ Carles Pina i Estany ]
+  * Update po-debconf Catalan translation
+
+  [ Boyuan Yang ]
+  * debian/fontconfig-config.postrm: Also clean up the newly-added
+    70-no-bitmaps-except-emoji.conf file on purge to fix piuparts errors.
+    (Closes: #1072210) (MR: !14)
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 04 Apr 2025 09:33:10 -0400
+
+fontconfig (2.15.0-2.2) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Use 'mkdir -p' in fontconfig-config.postinst to avoid package installation
+    failure on minimal systems without a full directory tree. (Closes: #1100871)
+
+ -- Luca Boccassi <bluca@debian.org>  Wed, 19 Mar 2025 19:50:15 +0000
+
+fontconfig (2.15.0-2.1) unstable; urgency=medium
+
+  * Non-maintainer upload
+  * /usr/local/share/fonts is owned by group:staff if
+    /etc/staff-group-for-usr-local is present
+    Closes: #962420
+
+ -- Anibal Monsalve Salazar <anibal@debian.org>  Sun, 09 Mar 2025 20:04:42 +1100
+
+fontconfig (2.15.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Cherry-pick patches to fix out of memory errors
+    when current working directory is deleted (Closes: #1051683)
+  * Remove obsolete unused manpages
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Wed, 08 Jan 2025 15:50:14 -0900
+
+fontconfig (2.15.0-1.1) unstable; urgency=high
+
+  * Add fix-emoji-no-bitmap-font.patch and update
+    debian/fontconfig-config.config to allow emoji font when no bitmap fonts
+    are allowed (which has been Debian's default for many years)
+    (Closes: #1064267) (LP: #2054924)
+
+ -- Guido Berhoerster <guido+freiesoftware@berhoerster.name>  Fri, 08 Mar 2024 13:20:01 +0100
+
+fontconfig (2.15.0-1) unstable; urgency=medium
+
+  * Team upload
+  * New upstream release
+  * Add debian/upstream/metadata
+  * Drop unused gbp.conf options
+  * Drop obsolete dbgsym migration handling
+  * Enable all hardening flags
+  * Refresh patches
+
+ -- Jeremy Bícha <jbicha@ubuntu.com>  Sat, 17 Feb 2024 14:18:24 -0500
+
+fontconfig (2.14.2-6) unstable; urgency=medium
+
+  * Team upload
+  * debian/control:
+    - Move fonts-noto-core from being the first font option
+  * Revert "Drop claim that DejaVu is Debian default"
+  * Updated Turkish translation (closes: #1029686)
+  * Updated Romanian translation (closes: #1031161)
+  * Update Spanish translation (closes: #1051707)
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Fri, 15 Sep 2023 00:05:41 +0200
+
+fontconfig (2.14.2-5) unstable; urgency=medium
+
+  * Team upload
+  * Clean up fc*.sgml files generated during build (closes: #1044293)
+  * Drop claim that DejaVu is Debian default (closes: #1042513)
+  * Make configure files reflect upstream filename change
+    (closes: #1050660)
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Sun, 03 Sep 2023 18:49:22 +0200
+
+fontconfig (2.14.2-4) unstable; urgency=medium
+
+  * Team upload
+  * Change the default monospcace font for latin scipts
+    - Upstream‘s default monospace font for latin scripts is currently
+      Noto Sans Mono, and that has been reflected in Debian since
+      fontconfig 2.14.1-3. Due to some deficiencies in that font, we
+      change it to the well established DejaVu Sans Mono. To cover
+      situations when the fonts-dejavu-mono package is not installed,
+      we put the Noto Mono font — included in the fonts-noto-mono
+      package — as the second one in the list. (Closes: #1028897)
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Sun, 20 Aug 2023 13:37:33 +0200
+
+fontconfig (2.14.2-3) unstable; urgency=medium
+
+  * Team upload
+  * Add back debian/not-installed
+    - Installing the libfontconfig.la file was not a good idea.
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Fri, 11 Aug 2023 01:42:45 +0200
+
+fontconfig (2.14.2-2) unstable; urgency=medium
+
+  * Team upload
+  * Install remaining files
+    - The newly created debian/not-installed file dropped.
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Thu, 10 Aug 2023 15:59:26 +0200
+
+fontconfig (2.14.2-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Gunnar Hjalmarsson ]
+  * Add Noto to list of font package dependency options
+  * New upstream release
+  * Revert "Remove upstream supplied conf.d/10-sub-pixel-rgb.conf"
+    - Upstream no longer creates that symlink by default.
+  * Update debian/libfontconfig1.symbols
+  * Bump Standards-Version to 4.6.2
+  * Fixed some Lintian issues
+    - This includes creating d/not-installed after having bumped
+      debhelper-compat to 13. d/not-installed contains quite a few
+      files, and should be reviewed later.
+  * Delete obsolete entries in d/fontconfig-config.maintscript
+
+  [ Fabian Greffrath ]
+  * Remove ttf-bitstream-vera from fontconfig-config's alternative
+    dependencies (Closes: #998284).
+  * Remove fonts-liberation2, it is a transitional dummy package now
+    (Closes: #1041263).
+
+ -- Gunnar Hjalmarsson <gunnarhj@debian.org>  Thu, 10 Aug 2023 11:59:21 +0200
+
 fontconfig (2.14.1-4+pexip24u3) pexip-bookworm; urgency=medium
 
   * New versioning scheme
@@ -480,20 +618,20 @@ fontconfig (2.11.0-2) unstable; urgency=low
   * fontconfig-config.postrm: be less aggressive in removing fonts.d.
     Closes: #728598.
   * Break xpdf (<= 3.03-11). Closes: #728444.
-  * 01_path_max.patch: patch from Samuel Thibault to stop requiring 
+  * 01_path_max.patch: patch from Samuel Thibault to stop requiring
     PATH_MAX. Closes: #729189.
   * fontconfig-config.links: enable lcdfilter by default.
     Closes: #638262, #605574.
-  * 02_indic_names.patch: patch from Vasudev Kamath to fix Indic font 
+  * 02_indic_names.patch: patch from Vasudev Kamath to fix Indic font
     family names. Closes: #661245.
   * Mark libfontconfig1-dev as multi-arch: same. Closes: #677885.
-  * 03_locale_c.utf8.patch: based on a patch from Martin Dickopp. Treat 
+  * 03_locale_c.utf8.patch: based on a patch from Martin Dickopp. Treat
     C.UTF-8 and C.utf8 locales as built in the C library.
     Closes: #717423.
   * Update font packages names. Closes: #712682.
   * Enable fonts-liberation as an alternative. Closes: #663553.
   * Also drop alternate dependency on gsfonts-x11.
-  * 04_mgopen_fonts.patch: new patch. Add more MgOpen fonts to default 
+  * 04_mgopen_fonts.patch: new patch. Add more MgOpen fonts to default
     sans typefaces. Closes: #400767.
   * ja.po: updated. Closes: #695078.
 
@@ -511,13 +649,13 @@ fontconfig (2.11.0-1) unstable; urgency=low
 
 fontconfig (2.10.2-2) unstable; urgency=low
 
-  * 01_conf.d_README.patch: new patch. Document the two locations for 
+  * 01_conf.d_README.patch: new patch. Document the two locations for
     conf.avail files.
-  * fontconfig-config.postrm: don’t remove conf.avail on uninstall. 
+  * fontconfig-config.postrm: don’t remove conf.avail on uninstall.
     Closes: #714164.
-  * fontconfig-config.postinst: remove the symlink of the old 
+  * fontconfig-config.postinst: remove the symlink of the old
     conf.avail. Closes: #714157.
-  * fontconfig-config.preinst: add a cleanup script for the broken 
+  * fontconfig-config.preinst: add a cleanup script for the broken
     2.10.2-1 version.
 
  -- Josselin Mouette <joss@debian.org>  Wed, 26 Jun 2013 20:44:27 +0200
@@ -675,7 +813,7 @@ fontconfig (2.8.0-1) unstable; urgency=low
 
 fontconfig (2.6.0-4) unstable; urgency=low
 
-  * fontconfig.{triggers,postinst}: register a trigger to automatically 
+  * fontconfig.{triggers,postinst}: register a trigger to automatically
     regenerate the font cache when packages install fonts.
 
  -- Keith Packard <keithp@debian.org>  Fri, 12 Jun 2009 13:20:36 -0700
@@ -685,8 +823,8 @@ fontconfig (2.6.0-3) unstable; urgency=low
   * Remove doc/Makefile and doc/version.sgml in the clean target.
   * Ship a minimal 70-yes-bitmaps.conf to avoid spurious warnings.
     Closes: #505969.
-  * fontconfig-config.config: don’t force the bitmap fonts to be off, 
-    rather re-ask when we find no existing symbolic link, since in this 
+  * fontconfig-config.config: don’t force the bitmap fonts to be off,
+    rather re-ask when we find no existing symbolic link, since in this
     case the intent of the user is unknown. Closes: #505970.
 
  -- Josselin Mouette <joss@debian.org>  Tue, 18 Nov 2008 08:47:53 +0100
@@ -694,11 +832,11 @@ fontconfig (2.6.0-3) unstable; urgency=low
 fontconfig (2.6.0-2) unstable; urgency=low
 
   * Do not enable bitmap fonts by default. Closes: #496716.
-    + rules: ship an empty 70-yes-bitmaps.conf and rename the original 
+    + rules: ship an empty 70-yes-bitmaps.conf and rename the original
       to 70-force-bitmaps.conf.
-    + fontconfig-config.postinst: install the symbolic link to 
+    + fontconfig-config.postinst: install the symbolic link to
       70-yes-bitmaps.conf if asked to do so.
-    + fontconfig-config.config: always assume bitmap fonts are not 
+    + fontconfig-config.config: always assume bitmap fonts are not
       wanted if no symbolic link is present.
 
  -- Josselin Mouette <joss@debian.org>  Mon, 10 Nov 2008 17:47:30 +0100
@@ -743,7 +881,7 @@ fontconfig (2.5.92-1) unstable; urgency=low
   * Fix bashisms in debian/rules (closes: 478381)
 
  -- Keith Packard <keithp@debian.org>  Sat, 03 May 2008 22:33:28 -0700
- 
+
 fontconfig (2.5.0-1) unstable; urgency=low
 
   * Upstream release of 2.5
@@ -847,15 +985,15 @@ fontconfig (2.4.2-1) unstable; urgency=low
   * Merge new upstream version (2.4.2).
 
  -- Keith Packard <keithp@debian.org>  Sat,  2 Dec 2006 16:24:55 -0800
- 
+
 fontconfig (2.4.1-2) unstable; urgency=low
 
   * Identify current debconf configuration using either
     2.4-style or 2.3-style link names. Link names changed in 2.4
     with re-work of /etc/fonts/conf.d conventions. (closes: #388008)
- 
+
  -- Keith Packard <keithp@debian.org>  Sun, 17 Sep 2006 22:10:18 -0700
- 
+
 fontconfig (2.4.1-1) unstable; urgency=low
 
   * Reimplement FcConfigAppFontAddDir; function was lost in 2.4.0.
@@ -888,7 +1026,7 @@ fontconfig (2.4.0-2) experimental; urgency=low
   * create /var/cache/fontconfig
   * clean out old fonts.cache-1 files in postinst phase
   * link defoma config as 30-defoma.conf
-  
+
  -- Keith Packard <keithp@debian.org>  Sun, 10 Sep 2006 01:54:31 -0700
 
 fontconfig (2.4.0-1) experimental; urgency=low
@@ -898,7 +1036,7 @@ fontconfig (2.4.0-1) experimental; urgency=low
   * split configuration
 
  -- Keith Packard <keithp@debian.org>  Sat,  9 Sep 2006 23:03:30 -0700
- 
+
 fontconfig (2.3.97-1) experimental; urgency=low
 
   * fontconfig update to 2.3.97 (2.4 pre 7)
@@ -909,7 +1047,7 @@ fontconfig (2.3.2-7) unstable; urgency=low
 
   * fontconfig-config.config: preserve the "bitmaps" parameter across
     upgrades from sarge.
-  * fc-{cache,list}.1: include pregenerated manpages (closes: #370706). 
+  * fc-{cache,list}.1: include pregenerated manpages (closes: #370706).
     This is ugly but it avoids build-depending on docbook-utils.
   * fontconfig.manpages: install these files.
   * fontconfig.install: don't install the manpages here.
@@ -924,7 +1062,7 @@ fontconfig (2.3.2-6) unstable; urgency=medium
   * dejavu.diff: still pull DejaVu by default, but prefer Bitstream Vera
     if it is available.
   * Standards version is 3.7.2.
-  * fontconfig-config.config: correctly handle local changes and stop 
+  * fontconfig-config.config: correctly handle local changes and stop
     using debconf as a registry.
   * fontconfig-config.postinst: correctly set the defoma symbolic link.
 
@@ -942,10 +1080,10 @@ fontconfig (2.3.2-5) unstable; urgency=low
 
   * Disable documentation building.
   * Remove build-dependency on docbook-utils (closes: #356071).
-  * libfontconfig1-dev.{install,manpages}: install the pre-generated 
+  * libfontconfig1-dev.{install,manpages}: install the pre-generated
     documentation instead.
   * fontconfig-config.manpages: ditto for the configuration file doc.
-  * Skip the PDF and TXT documentation, preferring HTML which is the 
+  * Skip the PDF and TXT documentation, preferring HTML which is the
     default in Debian.
 
  -- Josselin Mouette <joss@debian.org>  Thu,  9 Mar 2006 20:32:49 +0100
@@ -963,7 +1101,7 @@ fontconfig (2.3.2-3) unstable; urgency=high
   * fontconfig.preinst: don't remove configuration files when
     installing, only when upgrading. Fixes the "no conffiles" bug on new
     installations (closes: #354316).
-  * rules: don't run dh_installdocs and dh_installchangelogs for the 
+  * rules: don't run dh_installdocs and dh_installchangelogs for the
     udeb.
 
  -- Josselin Mouette <joss@debian.org>  Sun,  5 Mar 2006 18:03:48 +0100
@@ -1003,7 +1141,7 @@ fontconfig (2.3.2-2) unstable; urgency=low
   * Remove obsolete package relationships.
   * Don't install the user's guide, it's the same contents as the manual
     page.
-  * Pass LC_ALL=C to the make command to avoid local characters in the 
+  * Pass LC_ALL=C to the make command to avoid local characters in the
     manual pages.
   * Standards-version is 3.6.2.
 
@@ -1056,9 +1194,9 @@ fontconfig (2.3.0-1) experimental; urgency=low
     enables users to select their desired font attributes without
     having to carefully construct the font directory list.
   * Support for local configuration directory provides a place for system
-    distributors and administrators to make local changes to the font 
+    distributors and administrators to make local changes to the font
     configuration without having to edit any configuration files.
-					      
+
  -- Keith Packard <keithp@debian.org>  Wed,  2 Mar 2005 00:03:56 -0800
 
 fontconfig (2.2.3-4) unstable; urgency=low
@@ -1177,21 +1315,21 @@ fontconfig (2.2.1-14) unstable; urgency=low
 
 fontconfig (2.2.1-13) unstable; urgency=low
 
-  * patches/freetype-build.patch: include correctly freetype header 
+  * patches/freetype-build.patch: include correctly freetype header
     files (closes: #222680).
 
  -- Josselin Mouette <joss@debian.org>  Sat,  6 Dec 2003 15:32:30 +0100
 
 fontconfig (2.2.1-12) unstable; urgency=low
 
-  * fontconfig.postrm: support the case where /usr/local/share/fonts 
+  * fontconfig.postrm: support the case where /usr/local/share/fonts
     doesn't exist (closes: #219992).
 
  -- Josselin Mouette <joss@debian.org>  Tue, 11 Nov 2003 10:42:24 +0100
 
 fontconfig (2.2.1-11) unstable; urgency=low
 
-  * fontconfig.postinst: support the case where /usr/local is mounted 
+  * fontconfig.postinst: support the case where /usr/local is mounted
     read-only (closes: #219684).
 
  -- Josselin Mouette <joss@debian.org>  Sat,  8 Nov 2003 09:44:56 +0100
@@ -1217,7 +1355,7 @@ fontconfig (2.2.1-9) unstable; urgency=low
   * po/fr.po: update (closes: #218301).
   * po/ja.po: update (closes: #217420).
   * README.Debian: correct typo.
-  * patches/culmus-support.patch: support Culmus fonts for Hebrew 
+  * patches/culmus-support.patch: support Culmus fonts for Hebrew
     systems (closes: #198374).
 
  -- Josselin Mouette <joss@debian.org>  Sun,  2 Nov 2003 18:32:11 +0100
@@ -1420,7 +1558,7 @@ fontconfig (2.1.92-5) unstable; urgency=low
   * debian/control:
     - Add back Depends line for fontconfig-udeb, and put libexpat1-udeb,
     libfreetype6-udeb, zlib1g-udeb there.
-    
+
  -- Colin Walters <walters@debian.org>  Sun,  6 Apr 2003 14:07:58 -0400
 
 fontconfig (2.1.92-4) unstable; urgency=low
@@ -1544,7 +1682,7 @@ fontconfig (2.1-15) unstable; urgency=low
       This should fix those crashes in FcConfigAdd (Closes: #178780).
   * debian/rules:
     - Update to the latest version of Colin's Build System.
-   
+
  -- Colin Walters <walters@debian.org>  Fri, 17 Jan 2003 13:20:09 -0500
 
 fontconfig (2.1-14) unstable; urgency=low
@@ -1713,5 +1851,5 @@ fontconfig (2.0-2) unstable; urgency=low
 fontconfig (2.0-1) unstable; urgency=low
 
   * Initial version.
-  
+
  -- Colin Walters <walters@debian.org>  Sun, 13 Oct 2002 14:43:56 -0400
