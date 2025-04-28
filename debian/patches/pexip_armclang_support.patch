@@ -1,12 +1,12 @@
 Adds support for armclang compiler
---- a/src/meson.build
-+++ b/src/meson.build
-@@ -35,7 +35,7 @@
+--- fontconfig.orig/src/meson.build
++++ fontconfig/src/meson.build
+@@ -35,6 +35,8 @@ if cc.get_argument_syntax() == 'gcc'
    cpp += ['-E', '-P']
- elif cc.get_id() == 'msvc'
+ elif cc.get_argument_syntax() == 'msvc'
    cpp += ['/EP']
--elif cc.get_id() == 'clang'
-+elif ['clang', 'armltdclang'].contains(cc.get_id())
-   cpp += ['-E', '-P']
++elif ['clang', 'armltdclang'].contains(cc.get_argument_syntax())
++  cpp += ['-E', '-P']
  else
    error('FIXME: implement cc.preprocess')
+ endif
